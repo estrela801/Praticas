@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body{
+            background-color: blueviolet;
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            font-size: 20px;
+        }
+        .div{
+           background: blue;
+           width:500px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           border-radius: 10px;
+           flex-wrap: wrap;
+
+        }
+        button{
+            color: #ffffff;
+            background-color: cadetblue;
+            margin: 0 10px;
+        }
+        input{
+            width: 50px;
+            border-radius: 8px;
+            margin: 0 8px;
+            padding: 8px;
+        }
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+}
+    </style>
+</head>
+<body>
+    <div class="div">
+        <p>Tabuada do:<input type="number"></p>
+       
+        <button>Calcular</button>
+
+         <div id="tabuada"></div>
+    </div>
+    <script>
+        const valor = document.querySelector('input').value;
+        const lugar = document.querySelector('#tabuada')
+
+        document.querySelector('button').addEventListener('click', ()=>{
+
+
+            if(valor < 1){
+                lugar.innerHTML = 'Por favor digite um numero que não seja 0'
+            }
+        })
+    </script>
+</body>
+</html>
