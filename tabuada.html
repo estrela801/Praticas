@@ -34,8 +34,7 @@
             margin: 0 8px;
             padding: 8px;
         }
-        input[type="number"]::-webkit-inner-spin-button, 
-        input[type="number"]::-webkit-outer-spin-button {
+         input[type="number"]::-webkit-inner-spin-button { 
         -webkit-appearance: none;
         margin: 0;
         }
@@ -46,28 +45,46 @@
 </head>
 <body>
     <div class="div">
-        <p>Tabuada do:<input type="number"></p>
-       
-        <button>Calcular</button>
+        <p>Tabuada do:<input type="number" id="input"></p>
+        
+        <button type="button">Calcular</button>
+        <button type="reset" id="limpar">limpar</button>
 
-         <div id="tabuada"></div>
+         <div id="tabuada"><p></p></div>
     </div>
     <script>
-        const valor = document.querySelector('input').value;
+        const valor = document.querySelector('#input').value;
         const lugar = document.querySelector('#tabuada')
 
         document.querySelector('button').addEventListener('click', ()=>{
 
 
-            if(valor < 1){
-                lugar.innerHTML = 'Por favor digite um numero que não seja 0'
+            if(valor < 1 && valor > 12){
+
+                lugar.innerHTML = 'aaaaaaaaaa'
+                
             }
             else{
-                for(){
+                for(i = 1; i <=12 ; i++){
+                    let calc = String(i) + " x " + valor + " = " + i * valor
+                    
+                    const resultado = document.createElement('p')
 
+                    resultado.innerText = calc
+                    lugar.appendChild(resultado)
+
+                        
                 }
             }
+
+            if(!p){
+                document.querySelector('p').innerHTML = ''
+            }
+           
         })
+             document.querySelector('#limpar').addEventListener('click', ()=>{
+                document.querySelector('#tabuada').innerHTML = ''
+            })
     </script>
 </body>
 </html>
