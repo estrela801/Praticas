@@ -26,7 +26,7 @@
         button{
             color: #ffffff;
             background-color: cadetblue;
-            margin: 0 10px;
+            margin: 0 30px;
         }
         input{
             width: 50px;
@@ -39,12 +39,19 @@
         margin: 0;
         }
         #tabuada{
-            margin: 15px 0;
+            margin: 15px 100px;
+            flex-wrap: wrap;
+        
+        }
+        .p{
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="div">
+        <p class="p">Digite um número para descobrir o seu valor multiplicado do 1 ao 12</p>
+        <br><br>
         <p>Tabuada do:<input type="number" id="input"></p>
         
         <button type="button">Calcular</button>
@@ -55,18 +62,39 @@
     <script>
         const valor = document.querySelector('#input').value;
         const lugar = document.querySelector('#tabuada')
+        const tabuada = document.querySelector('#tabuada')
+        const verificaValor = function(){
+
+             if(tabuada.Children.lenght > 0){
+                return true
+             }else{
+                return false
+             }
+
+        }
+
+
+
 
         document.querySelector('button').addEventListener('click', ()=>{
 
-
-            if(valor < 1 && valor > 12){
-
-                lugar.innerHTML = 'aaaaaaaaaa'
+            if(verificaValor === true ){
+                tabuada.innerHTML = 'digite um valor '
+            }
+            
+           else if(document.querySelector('.tabuada')){
+                
+                document.querySelector('.tabuada').innerHTML = ''
+                
                 
             }
-            else{
+            else if(valor < 1 && valor > 12){
+                lugar.innerHTML = 'aaaaaaaaaa'
+            }
+            
+            else {
                 for(i = 1; i <=12 ; i++){
-                    let calc = String(i) + " x " + valor + " = " + i * valor
+                    let calc = i + " x " + document.querySelector('#input').value  + " = " + i * document.querySelector('#input').value;
                     
                     const resultado = document.createElement('p')
 
@@ -77,14 +105,12 @@
                 }
             }
 
-            if(!p){
-                document.querySelector('p').innerHTML = ''
-            }
-           
         })
              document.querySelector('#limpar').addEventListener('click', ()=>{
                 document.querySelector('#tabuada').innerHTML = ''
             })
+            
+            
     </script>
 </body>
 </html>
